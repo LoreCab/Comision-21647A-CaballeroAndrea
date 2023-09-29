@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
+const helmet = require ('helmet')
 
 const { DBTest } = require('./Database.js');
 const PublicacionModel = require('./PublicacionModel.js');
@@ -11,6 +12,7 @@ const PUERTO = process.env.PUERTO
 
 app.set('view engine', 'ejs');
 
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
